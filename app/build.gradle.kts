@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.android.hilt)
+    alias(libs.plugins.realm)
 }
 
 android {
@@ -95,5 +96,8 @@ dependencies {
     
     // coil
     implementation(libs.bundles.coil)
+
+    // realm
+    implementation(libs.bundles.realm)
 
 }

@@ -31,6 +31,7 @@ timber = "5.0.1"
 okhttp = "4.11.0"
 voyager = "1.0.0-rc10"
 coil = "2.4.0"
+realm = "1.11.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -86,6 +87,10 @@ coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 
+# realm
+realm-base = { module = "io.realm.kotlin:library-base", version.ref = "realm" }
+realm-sync = { module = "io.realm.kotlin:library-sync", version.ref = "realm" }
+
 # other
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
@@ -101,6 +106,7 @@ voyager = [
     "voyager-navigator", "voyager-transitions", "voyager-androidx", "voyager-hilt"
 ]
 coil = ["coil-kt", "coil-kt-compose"]
+realm = ["realm-base", "realm-sync"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle-plugin-android" }
@@ -109,3 +115,4 @@ android-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hi
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+realm = { id = "io.realm.kotlin", version.ref = "realm" }
