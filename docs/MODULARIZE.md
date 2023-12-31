@@ -22,5 +22,7 @@
 - data-sources
   - remote
     - this is the data from the api
+    - DTO (from API to APP)
   - local
     - this is the data stored locally (cached)
+    - Entity (from local storage to APP)
