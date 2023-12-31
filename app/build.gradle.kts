@@ -2,6 +2,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.android.hilt)
 }
 
 android {
@@ -67,4 +70,17 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    // timber
+    implementation(libs.timber)
+
+    // hilt
+    implementation(libs.bundles.hilt)
+    ksp(libs.androidx.hilt.compiler)
+    ksp(libs.dagger.hilt.compiler)
+
+    // ktor
+    implementation(libs.bundles.ktor)
+    testImplementation(libs.ktor.client.mock)
+
 }
