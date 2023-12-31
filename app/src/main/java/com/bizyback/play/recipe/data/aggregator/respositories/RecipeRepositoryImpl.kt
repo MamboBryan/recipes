@@ -23,7 +23,7 @@ class RecipeRepositoryImpl @Inject constructor(
 
     override suspend fun searchRecipes(type: RecipeType, query: String): DataResult<List<Recipe>> {
         return when (
-            val result = remoteSource.fetchSearchedRecipes(type = type.name, query = query)
+            val result = remoteSource.fetchSearchedRecipes(type = type.name.lowercase(), query = query)
         ) {
 
             is NetworkResult.Error ->

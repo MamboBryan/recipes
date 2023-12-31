@@ -14,6 +14,7 @@ import cafe.adriel.voyager.androidx.AndroidScreen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.bizyback.play.recipe.R
+import com.bizyback.play.recipe.features.recipesearch.RecipeSearchScreen
 
 /**
  * @project : Recipe
@@ -26,7 +27,7 @@ object LandingScreen : AndroidScreen() {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
-//        navigator.replace()
+        navigator.replace(RecipeSearchScreen)
         LandingScreenContent()
     }
 }

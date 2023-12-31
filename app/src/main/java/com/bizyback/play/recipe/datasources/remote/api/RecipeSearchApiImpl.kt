@@ -11,7 +11,9 @@ import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.url
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.Url
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -40,6 +42,7 @@ class RecipeSearchApiImpl @Inject constructor(
                 parameter("type", type)
                 parameter("q", query)
             }
+            Timber.d("RESPONSE -> \n${response.bodyAsText()}")
             response.body()
         }
 

@@ -28,8 +28,8 @@ ksp = "1.9.10-1.0.13" # always match with kotlin version
 # other
 timber = "5.0.1"
 okhttp = "4.11.0"
-voyager = "1.0.0-rc05"
-coil = "2.2.2"
+voyager = "1.0.0-rc10"
+coil = "2.4.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }

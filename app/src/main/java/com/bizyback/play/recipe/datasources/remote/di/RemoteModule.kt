@@ -10,6 +10,8 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.header
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
@@ -29,6 +31,9 @@ object RemoteModule {
 
     @Provides
     fun providesHttpClient() = HttpClient(OkHttp) {
+        install(Logging) {
+            level = LogLevel.BODY
+        }
         install(ContentNegotiation) {
             json(Json {
                 ignoreUnknownKeys = true

@@ -1,6 +1,7 @@
 package com.bizyback.play.recipe.data.aggregator.di
 
 import com.bizyback.play.recipe.data.aggregator.respositories.RecipeRepositoryImpl
+import com.bizyback.play.recipe.data.domain.repositories.RecipeRepository
 import com.bizyback.play.recipe.datasources.remote.api.RecipeSearchApi
 import dagger.Module
 import dagger.Provides
@@ -20,6 +21,8 @@ import dagger.hilt.components.SingletonComponent
 object RepositoryModule {
 
     @Provides
-    fun providesRecipeRepository(api: RecipeSearchApi) = RecipeRepositoryImpl(remoteSource = api)
+    fun providesRecipeRepository(
+        api: RecipeSearchApi
+    ): RecipeRepository = RecipeRepositoryImpl(remoteSource = api)
 
 }
