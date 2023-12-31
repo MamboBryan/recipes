@@ -2,8 +2,11 @@
 - app 
   - this is the app module that builds the application
 
-- presentation
-  - handles all the UI logic
+- ui
+  - presentation
+    - handles all the UI logic
+  - design-system
+    - handles all UI related design elements
 
 - features
   - recipe search
@@ -12,7 +15,7 @@
 - data 
   - should know where to fetch the data from
   - domain
-    - should describe how the data should come as
+    - should describe how the data should be fetch for the UI
   - aggregator
     - should figure out if I need data from what source
 

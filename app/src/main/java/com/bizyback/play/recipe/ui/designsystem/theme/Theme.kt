@@ -1,4 +1,4 @@
-package com.bizyback.play.recipe.ui.theme
+package com.bizyback.play.recipe.ui.designsystem.theme
 
 import android.app.Activity
 import android.os.Build

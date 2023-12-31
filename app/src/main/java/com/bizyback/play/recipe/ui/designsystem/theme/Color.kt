@@ -1,4 +1,4 @@
-package com.bizyback.play.recipe.ui.theme
+package com.bizyback.play.recipe.ui.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
