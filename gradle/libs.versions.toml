@@ -28,6 +28,8 @@ ksp = "1.9.10-1.0.13" # always match with kotlin version
 # other
 timber = "5.0.1"
 okhttp = "4.11.0"
+voyager = "1.0.0-rc05"
+coil = "2.2.2"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -69,6 +71,17 @@ ktor-okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-intercep
 # gradle plugin
 ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
+# voyager
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
+voyager-androidx = { module = "cafe.adriel.voyager:voyager-androidx", version.ref = "voyager" }
+voyager-hilt = { module = "cafe.adriel.voyager:voyager-hilt", version.ref = "voyager" }
+
+# coil
+coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
+
 # other
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
@@ -80,6 +93,10 @@ ktor = [
 hilt = [
     "androidx-hilt", "dagger-hilt"
 ]
+voyager = [
+    "voyager-navigator", "voyager-transitions", "voyager-androidx", "voyager-hilt"
+]
+coil = ["coil-kt", "coil-kt-compose"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle-plugin-android" }

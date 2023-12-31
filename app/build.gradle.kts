@@ -87,4 +87,10 @@ dependencies {
     implementation(libs.bundles.ktor)
     testImplementation(libs.ktor.client.mock)
 
+    // voyager
+    implementation(libs.bundles.voyager)
+    
+    // coil
+    implementation(libs.bundles.coil)
+
 }
