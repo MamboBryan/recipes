@@ -1,7 +1,11 @@
 package com.bizyback.play.recipe.data.aggregator.di
 
 import com.bizyback.play.recipe.data.aggregator.respositories.RecipeRepositoryImpl
+import com.bizyback.play.recipe.data.aggregator.respositories.UserRepositoryImpl
 import com.bizyback.play.recipe.data.domain.repositories.RecipeRepository
+import com.bizyback.play.recipe.data.domain.repositories.UserRepository
+import com.bizyback.play.recipe.datasources.local.preferences.LocalPreferences
+import com.bizyback.play.recipe.datasources.local.preferences.UserPreferences
 import com.bizyback.play.recipe.datasources.remote.api.RecipeSearchApi
 import dagger.Module
 import dagger.Provides
@@ -22,7 +26,15 @@ object RepositoryModule {
 
     @Provides
     fun providesRecipeRepository(
-        api: RecipeSearchApi
-    ): RecipeRepository = RecipeRepositoryImpl(remoteSource = api)
+        api: RecipeSearchApi,
+        userPreferences: UserPreferences
+    ): RecipeRepository =
+        RecipeRepositoryImpl(remoteSource = api, userPreferences = userPreferences)
+
+    @Provides
+    fun providesUserRepository(
+        localPreferences: LocalPreferences
+    ): UserRepository =
+        UserRepositoryImpl(localPreferences = localPreferences)
 
 }

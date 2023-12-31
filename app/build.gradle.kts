@@ -71,6 +71,9 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
+    // androidx-datastore
+    implementation(libs.androidx.datastore)
+    
     // coroutines
     implementation(libs.kotlinx.coroutines)
     testImplementation(libs.kotlinx.coroutines.test)

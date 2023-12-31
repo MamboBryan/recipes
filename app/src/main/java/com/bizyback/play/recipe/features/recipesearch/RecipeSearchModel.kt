@@ -4,9 +4,11 @@ import cafe.adriel.voyager.core.model.screenModelScope
 import com.bizyback.play.recipe.data.domain.models.DataResult
 import com.bizyback.play.recipe.data.domain.models.Recipe
 import com.bizyback.play.recipe.data.domain.repositories.RecipeRepository
+import com.bizyback.play.recipe.data.domain.repositories.UserRepository
 import com.bizyback.play.recipe.features.helpers.MutableScreenState
 import com.bizyback.play.recipe.features.helpers.UiListState
 import com.bizyback.play.recipe.features.helpers.UiSuccessState
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,14 +20,44 @@ import javax.inject.Inject
  * @time    : 2:54 pm
  */
 data class RecipeSearchScreenUiState(
+    val isDarkModeEnabled: Boolean = true,
     val query: String = "",
+    val searchedWords: List<String> = emptyList(),
     val isLoading: Boolean = false,
     val listState: UiListState<List<Recipe>> = UiListState.Idle
 )
 
 class RecipeSearchModel @Inject constructor(
-    private val repository: RecipeRepository
+    private val recipeRepository: RecipeRepository,
+    private val userRepository: UserRepository
 ) : MutableScreenState<RecipeSearchScreenUiState>(RecipeSearchScreenUiState()) {
+
+    init {
+        observeDarkModeTheme()
+        getPreviousSearchedWords()
+    }
+
+    private fun observeDarkModeTheme() {
+        screenModelScope.launch {
+            userRepository.isDarkModeEnabled.collectLatest {
+                update { copy(isDarkModeEnabled = it) }
+            }
+        }
+    }
+
+    fun updateDarkModeTheme() {
+        screenModelScope.launch {
+            userRepository.updateDarkModeTheme()
+        }
+    }
+
+    private fun getPreviousSearchedWords() {
+        screenModelScope.launch {
+            recipeRepository.searchedWords.collectLatest { queries ->
+                update { copy(searchedWords = queries) }
+            }
+        }
+    }
 
     fun onRetry() {
         onSearchClicked()
@@ -43,7 +75,7 @@ class RecipeSearchModel @Inject constructor(
                 update { copy(isLoading = true) }
             else
                 update { copy(listState = UiListState.Loading) }
-            val result = repository.searchRecipes(query = query)
+            val result = recipeRepository.searchRecipes(query = query)
             when (result) {
                 is DataResult.Error -> {
                     update { copy(listState = UiListState.Error(message = result.message)) }
