@@ -13,8 +13,8 @@ jobs:
       - name: Create local.properties file
         run: |
           touch local.properties
-          echo "key="""
-          echo "id="""
+          echo "key="justsomethingrandom""
+          echo "id="justsomethingrandom""
       - name: TODO to Issue
         uses: alstr/todo-to-issue-action@v4.6.8
         id: todo

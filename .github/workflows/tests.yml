@@ -15,8 +15,8 @@ jobs:
       - name: Create local.properties file
         run: |
           touch local.properties
-          echo "key="""
-          echo "id="""
+          echo "key="justsomethingrandom""
+          echo "id="justsomethingrandom""
       - name: Checkout project sources
         uses: actions/checkout@v2
       - name: Set up JDK 17
