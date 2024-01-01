@@ -28,8 +28,8 @@ class RecipeSearchApiImpl @Inject constructor(
 ) : RecipeSearchApi {
 
     private fun HttpRequestBuilder.addAuthenticationQueryParameters() {
-        parameter("app_key", "eae736ace3a235647a0ab93ed2bb26f2")
-        parameter("app_id", "f4123019")
+        parameter("app_key", "somethingjustlikethis")
+        parameter("app_id", "don'tworryaboutit")
     }
 
     override suspend fun fetchSearchedRecipes(
