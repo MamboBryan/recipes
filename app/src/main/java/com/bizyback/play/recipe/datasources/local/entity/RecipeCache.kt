@@ -15,5 +15,4 @@ class RecipeCache() : RealmObject {
     val id: String = ""
     val label: String = ""
     val image: String = ""
-
 }
