@@ -36,7 +36,9 @@ android {
             buildConfigField("String", "AppId", id)
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            buildConfigField("String", "AppKey", key)
+            buildConfigField("String", "AppId", id)
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
