@@ -4,6 +4,7 @@ import com.bizyback.play.recipe.data.domain.models.DataResult
 import com.bizyback.play.recipe.data.domain.models.Recipe
 import com.bizyback.play.recipe.data.domain.models.RecipeType
 import com.bizyback.play.recipe.data.domain.repositories.RecipeRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -41,6 +42,9 @@ private class FakeRecipeRepository : RecipeRepository {
     fun clearData() {
         state.value = null
     }
+
+    override val searchedWords: Flow<List<String>>
+        get() = MutableStateFlow(listOf())
 
     override suspend fun searchRecipes(type: RecipeType, query: String): DataResult<List<Recipe>> {
         return if (state.value == null) {
