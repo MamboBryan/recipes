@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.application)
@@ -25,7 +27,14 @@ android {
         }
     }
 
+    val key: String = gradleLocalProperties(rootDir).getProperty("key")
+    val id: String = gradleLocalProperties(rootDir).getProperty("id")
+
     buildTypes {
+        debug {
+            buildConfigField("String", "AppKey", key)
+            buildConfigField("String", "AppId", id)
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -43,6 +52,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.3"

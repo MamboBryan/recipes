@@ -11,8 +11,8 @@ import io.realm.kotlin.types.annotations.PrimaryKey
  * @time    : 7:21 pm
  */
 class RecipeCache() : RealmObject {
-    @PrimaryKey
-    val id: String = ""
-    val label: String = ""
-    val image: String = ""
+//    @PrimaryKey
+    var id: String = ""
+    var label: String = ""
+    var image: String = ""
 }

@@ -1,5 +1,6 @@
 package com.bizyback.play.recipe.datasources.remote.api
 
+import com.bizyback.play.recipe.BuildConfig
 import com.bizyback.play.recipe.datasources.remote.dto.RecipeSearchResponseDTO
 import com.bizyback.play.recipe.datasources.remote.helpers.Endpoints
 import com.bizyback.play.recipe.datasources.remote.helpers.Endpoints.Recipe.Search.url
@@ -28,8 +29,8 @@ class RecipeSearchApiImpl @Inject constructor(
 ) : RecipeSearchApi {
 
     private fun HttpRequestBuilder.addAuthenticationQueryParameters() {
-        parameter("app_key", "somethingjustlikethis")
-        parameter("app_id", "don'tworryaboutit")
+        parameter("app_key", BuildConfig.AppKey)
+        parameter("app_id", BuildConfig.AppId)
     }
 
     override suspend fun fetchSearchedRecipes(
