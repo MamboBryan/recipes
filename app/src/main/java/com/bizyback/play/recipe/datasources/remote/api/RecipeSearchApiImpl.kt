@@ -3,7 +3,6 @@ package com.bizyback.play.recipe.datasources.remote.api
 import com.bizyback.play.recipe.BuildConfig
 import com.bizyback.play.recipe.datasources.remote.dto.RecipeSearchResponseDTO
 import com.bizyback.play.recipe.datasources.remote.helpers.Endpoints
-import com.bizyback.play.recipe.datasources.remote.helpers.Endpoints.Recipe.Search.url
 import com.bizyback.play.recipe.datasources.remote.helpers.NetworkResult
 import com.bizyback.play.recipe.datasources.remote.helpers.safeApiCall
 import io.ktor.client.HttpClient
@@ -13,7 +12,6 @@ import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.url
 import io.ktor.client.statement.bodyAsText
-import io.ktor.http.Url
 import timber.log.Timber
 import javax.inject.Inject
 

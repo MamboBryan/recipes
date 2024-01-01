@@ -13,8 +13,8 @@ jobs:
         run: |
           touch local.properties
           echo "
-          id="justsomethingrandom"
-          key="justsomethingrandom"
+          id=\"justsomethingrandom\"
+          key=\"justsomethingrandom\"
           " > local.properties
           cat local.properties
       - name: Set up JDK 17
